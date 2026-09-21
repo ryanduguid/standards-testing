@@ -68,6 +68,17 @@ Outputs the current testdoc schema to stdout
 `testdocs schema changelog`
 Outputs the current changelog schema to stdout
 
+To save a schema for another tool:
+
+```bash
+testdocs schema testdoc > testdoc-schema.json
+testdocs schema changelog > changelog-schema.json
+```
+
+Each command writes only the requested JSON schema to stdout. To check both
+schema commands after building the CLI, run `node test/schema-output.js` from
+`cli`. The check covers piped and file output, plus missing and invalid arguments.
+
 ### Validate Command Documentation
 
 #### Command

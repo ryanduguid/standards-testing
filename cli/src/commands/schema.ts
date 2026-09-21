@@ -16,10 +16,10 @@ export const builder: CommandBuilder<Options, Options> = (yargs) =>
 export const handler = (argv: Arguments<Options>): void => {
   const { type } = argv;
 
-  console.log(type)
   switch (type) {
     case 'testdoc': 
       process.stdout.write(`${JSON.stringify(testdoc_schema, null, 4)}\n`);
+      break;
     case 'changelog': 
       process.stdout.write(`${JSON.stringify(changelog_schema, null, 4)}\n`);
   }
