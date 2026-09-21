@@ -37,6 +37,10 @@ To build the repository run the following scripts from a bash compliant command 
 2. Copy the latetst test documentation schema and build classes `npm run sync-schema`
 3. Build `npm run build`
 
+Run `npm test` from the `cli` directory to build and check validation exit codes and the root validation/generation scripts. The checks use fabricated files and the real compiled CLI, schema engine and generators. Temporary fixtures are retained under the repository's ignored `working` directory.
+
+Run `npm run lint` to check for debugger statements, duplicate variables or superclass calls, unsafe `finally` blocks and direct `NaN` comparisons. The declared TSLint command now has a pinned development dependency and an explicit configuration. This initial rule set leaves existing formatting and other lint categories unchanged. TSLint is deprecated; migrating to a maintained linter is separate work.
+
 To publish the repository to npm (needs permission)
 
 1. Build for release `npm run build-prod`

@@ -1,9 +1,9 @@
 {
     "scripts": {
-        "validate": "cd ./cli && npm run build && (node ./dist/cli validate testdoc ../json-docs/full-test-suite.json & node ./dist/cli validate changelog '../json-docs/CDR Test Documentation CHANGE LOG.json')",
+        "validate": "cd ./cli && npm run build && (node ./dist/cli validate testdoc ../json-docs/full-test-suite.json && node ./dist/cli validate changelog '../json-docs/CDR Test Documentation CHANGE LOG.json')",
         "validate-testdoc": "cd ./cli && npm run build && node ./dist/cli validate testdoc ../json-docs/full-test-suite.json",
         "validate-changelog": "cd ./cli && npm run build && node ./dist/cli validate changelog '../json-docs/CDR Test Documentation CHANGE LOG.json'",
-        "generate": "cd ./cli && (node ./dist/cli generate html ../json-docs/full-test-suite.json ../docs/index.html & node ./dist/cli generate markdown ../json-docs/full-test-suite.json ../docs/ReadMe.md)",
+        "generate": "cd ./cli && (node ./dist/cli generate html ../json-docs/full-test-suite.json ../docs/index.html && node ./dist/cli generate markdown ../json-docs/full-test-suite.json ../docs/ReadMe.md)",
         "generate-html": "cd ./cli && node ./dist/cli generate html ../json-docs/full-test-suite.json ../docs/index.html",
         "generate-markdown": "cd ./cli && node ./dist/cli generate markdown ../json-docs/full-test-suite.json ../docs/ReadMe.md"
      } 

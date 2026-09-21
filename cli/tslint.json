@@ -1,0 +1,10 @@
+{
+  "defaultSeverity": "error",
+  "rules": {
+    "no-debugger": true,
+    "no-duplicate-super": true,
+    "no-duplicate-variable": true,
+    "no-unsafe-finally": true,
+    "use-isnan": true
+  }
+}
