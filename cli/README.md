@@ -42,6 +42,52 @@ To publish the repository to npm (needs permission)
 1. Build for release `npm run build-prod`
 2. Publish `npm publish --access public`
 
+## Using schemas in TypeScript and JavaScript
+
+Install the package in your project with `npm install @cds-au/testdocs`.
+Import schema types and functions directly from the package:
+
+```typescript
+import type {
+  ConsumerDataRightTestCaseJSONSchema,
+  CDRTestDocumentationChangelogSchema,
+  TestCase,
+  Suite
+} from '@cds-au/testdocs';
+import { testDocSchema, changeLogSchema } from '@cds-au/testdocs';
+
+const testDocumentationSchema = testDocSchema();
+const changelogSchema = changeLogSchema();
+```
+
+The types describe test documentation and changelog data. They are erased
+during TypeScript compilation. The functions return the corresponding JSON
+schemas for use with a validator; importing a type does not validate data.
+
+JavaScript callers can use the same functions:
+
+```javascript
+const { testDocSchema, changeLogSchema } = require('@cds-au/testdocs');
+```
+
+Existing imports through `@cds-au/testdocs/dist/...` remain available.
+
+### Checking package imports
+
+After building the CLI, run these commands from `cli` in a bash-compatible
+terminal. They install the packed package in a separate consumer directory
+and check public types, runtime schemas, existing deep imports and CLI help.
+
+```bash
+consumer=$(mktemp -d)
+npm pack --pack-destination "$consumer"
+npm install --prefix "$consumer" "$consumer/cds-au-testdocs-1.0.0.tgz" --ignore-scripts
+node test/package-imports.js "$consumer"
+```
+
+Use the tarball filename reported by `npm pack` if the package version changes.
+The check uses the TypeScript dependency installed in `cli/node_modules`.
+
 ## Using the CLI Commands
 
 ### Schema Command Documentation
