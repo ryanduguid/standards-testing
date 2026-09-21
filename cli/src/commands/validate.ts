@@ -22,8 +22,8 @@ export const handler = (argv: Arguments<Options>): void => {
   const { type, filename, verbose } = argv;
 
   if (schemaValidate.validateSchema(type, filename, verbose, process.stdout, process.stderr)) {
-    process.exit(1);
-  } else {
     process.exit(0);
+  } else {
+    process.exit(1);
   }
 };
