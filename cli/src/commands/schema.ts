@@ -24,5 +24,5 @@ export const handler = (argv: Arguments<Options>): void => {
       process.stdout.write(`${JSON.stringify(changelog_schema, null, 4)}\n`);
   }
 
-  process.exit(0);
+  process.exitCode = 0;
 };

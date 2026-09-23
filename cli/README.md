@@ -77,7 +77,8 @@ testdocs schema changelog > changelog-schema.json
 
 Each command writes only the requested JSON schema to stdout. To check both
 schema commands after building the CLI, run `node test/schema-output.js` from
-`cli`. The check covers piped and file output, plus missing and invalid arguments.
+`cli`. The check covers piped, delayed and file output, plus missing and invalid
+arguments.
 
 ### Validate Command Documentation
 

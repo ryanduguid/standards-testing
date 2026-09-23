@@ -25,6 +25,28 @@ for (const [type, filename] of [
 ]) {
   const expected = require(path.join(__dirname, '../src/schemas', filename));
 
+  check(`${type} waits for asynchronous stdout writes`, () => {
+    // Model asynchronous pipe writes on every platform, including Windows.
+    const script = `
+      const { Writable } = require('stream');
+      const stdout = process.stdout;
+      Object.defineProperty(process, 'stdout', {
+        value: new Writable({
+          write(chunk, encoding, callback) {
+            setTimeout(() => stdout.write(chunk, encoding, callback), 10);
+          }
+        })
+      });
+      process.argv = [process.execPath, ${JSON.stringify(cli)}, 'schema', ${JSON.stringify(type)}];
+      require(${JSON.stringify(cli)});
+    `;
+    const result = spawnSync(process.execPath, ['-e', script], { encoding: 'utf8' });
+    assert.ifError(result.error);
+    assert.strictEqual(result.status, 0, result.stderr);
+    assert.strictEqual(result.stderr, '');
+    assert.deepStrictEqual(JSON.parse(result.stdout), expected);
+  });
+
   for (const redirect of [false, true]) {
     check(`${type} produces one complete JSON schema with ${redirect ? 'file' : 'pipe'} output`, () => {
       const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'testdocs-schema-'));
