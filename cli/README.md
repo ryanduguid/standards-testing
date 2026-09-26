@@ -37,7 +37,7 @@ To build the repository run the following scripts from a bash compliant command 
 2. Copy the latetst test documentation schema and build classes `npm run sync-schema`
 3. Build `npm run build`
 
-Run `npm test` from this directory in a bash-compatible terminal with Node.js 18 or later. The tests build the CLI and check process exit codes using the real schemas and Ajv, plus the root validation and generation scripts. Validation exits with status 0 on success and status 1 on invalid input, schema compilation failure or an unreadable file. Combined commands stop and fail when either child fails.
+Run `npm test` from this directory in a bash-compatible terminal with Node.js 22 or later. The tests build the CLI and check process exit codes using the real schemas and Ajv, plus the root validation and generation scripts. Validation exits with status 0 on success and status 1 on invalid input, schema compilation failure or an unreadable file. Combined commands stop and fail when either child fails.
 
 To publish the repository to npm (needs permission)
 
