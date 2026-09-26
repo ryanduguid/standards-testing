@@ -15,7 +15,7 @@ The goal of the testdocs CLI is to provide tooling for the documentation of test
 Before you begin, ensure you have the following installed:
 
 - Git, for cloning the repository.
-- [Node.js](https://nodejs.org/en/) (v18 or higher).
+- [Node.js](https://nodejs.org/en/) (v22 or higher; use a maintained LTS release).
 - npm (Node Package Manager) - **included with Node.js installation**.
 
 ### Installation

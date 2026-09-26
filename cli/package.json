@@ -18,7 +18,7 @@
   "author": "Data Standards Body",
   "license": "MIT",
   "engines": {
-    "node": ">=18"
+    "node": ">=22"
   },
   "devDependencies": {
     "@types/node": "^17.0.26",
