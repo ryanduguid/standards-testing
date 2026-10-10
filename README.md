@@ -23,7 +23,7 @@ This repository:
 
 ## Accessing the CDR Test Documentation
 
-The CDR API Test Documentation is available online in a user-friendly HTML format. You can easily access it here, search, and reference this essential testing documentation from anywhere. 
+The CDR API Test Documentation is available online in a user-friendly HTML format. You can [access the documentation online](https://consumerdatastandardsaustralia.github.io/standards-testing/latest/), search it, and reference it from anywhere.
 
 ## Repository Structure
 
