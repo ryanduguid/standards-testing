@@ -73,7 +73,6 @@ function generateSummarySection(testDocs: ConsumerDataRightTestCaseJSONSchema): 
 
   let result = '';
   let today = dayjs();
-  result += startSection();
 
   result += header1(testDocs.title, 'introduction');
   result += text('File version: ' + testDocs.fileVersion);
@@ -88,8 +87,6 @@ function generateSummarySection(testDocs: ConsumerDataRightTestCaseJSONSchema): 
 function generateSuitesSection(testDocs: ConsumerDataRightTestCaseJSONSchema): string {
   let result = '';
 
-  result += startSection();
-
   result += header1('Test Suites', 'suites');
 
   let nonEmptySuiteFound = false;
@@ -101,8 +98,6 @@ function generateSuitesSection(testDocs: ConsumerDataRightTestCaseJSONSchema): s
       if (!suite.scenarios || suite.scenarios.length === 0) continue;
 
       nonEmptySuiteFound = true;
-
-      result += startSection();
 
       result += header2(suiteId + ': ' + suite.title, createSlug('suite', suiteId));
       result += text(processNewlines(suite.description));
@@ -149,8 +144,6 @@ function generateSuitesSection(testDocs: ConsumerDataRightTestCaseJSONSchema): s
 function generateScenariosSection(testDocs: ConsumerDataRightTestCaseJSONSchema): string {
   let result = '';
 
-  result += startSection();
-
   result += header1('Test Scenarios', 'scenarios');
 
   let nonEmptyScenarioFound = false;
@@ -162,8 +155,6 @@ function generateScenariosSection(testDocs: ConsumerDataRightTestCaseJSONSchema)
       if (!scenario.sequence || scenario.sequence.length === 0) continue;
 
       nonEmptyScenarioFound = true;
-
-      result += startSection();
 
       result += header2(scenarioId + ': ' + scenario.title, createSlug('scenario', scenarioId));
       result += text(processNewlines(scenario.description));
@@ -224,8 +215,6 @@ function generateScenariosSection(testDocs: ConsumerDataRightTestCaseJSONSchema)
 function generateTestCasesSection(testDocs: ConsumerDataRightTestCaseJSONSchema): string {
   let result = '';
 
-  result += startSection();
-
   result += header1('Test Cases', 'testcases');
 
   let nonEmptyTestCaseFound = false;
@@ -237,8 +226,6 @@ function generateTestCasesSection(testDocs: ConsumerDataRightTestCaseJSONSchema)
       if (!testCase.steps || testCase.steps.length === 0) continue;
 
       nonEmptyTestCaseFound = true;
-
-      result += startSection();
 
       result += header2(testCaseId + ': ' + testCase.title, createSlug('testcase', testCaseId));
       result += text(testCase.negative ? 'Negative test case' : 'Positive test case');
@@ -326,16 +313,12 @@ function generateTestCasesSection(testDocs: ConsumerDataRightTestCaseJSONSchema)
 function generateAssertionsSection(testDocs: ConsumerDataRightTestCaseJSONSchema): string {
   let result = '';
 
-  result += startSection();
-
   result += header1('Assertions', 'assertions');
   if (testDocs.assertions && Object.keys(testDocs.assertions).length > 0) {
 
     // Document each individual assertion
     for (const assertionId of Object.keys(testDocs.assertions)) {
       const assertion = testDocs.assertions[assertionId];
-
-      result += startSection();
 
       result += header2(assertionId + ': ' + assertion.title, createSlug('assertion', assertionId));
       result += text(processNewlines(assertion.description));
@@ -507,10 +490,6 @@ function startDoc(): string {
 }
 
 function endDoc(): string {
-  return ``;
-}
-
-function startSection(): string {
   return ``;
 }
 
