@@ -15,4 +15,4 @@ yargs
     g: 'generate',
     s: 'schema'
   })
-  .argv;
+  .parse();
