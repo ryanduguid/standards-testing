@@ -3,7 +3,7 @@
 import yargs from 'yargs';
 import { commands } from './commands';
 
-const argv = yargs
+yargs
   // Use the commands directory to scaffold.
   .command(commands as any)
   // Enable strict mode.

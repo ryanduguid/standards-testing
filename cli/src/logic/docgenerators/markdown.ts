@@ -73,7 +73,7 @@ function generateSummarySection(testDocs: ConsumerDataRightTestCaseJSONSchema): 
 
   let result = '';
   let today = dayjs();
-  result += startSection('summary');
+  result += startSection();
 
   result += header1(testDocs.title, 'introduction');
   result += text('File version: ' + testDocs.fileVersion);
@@ -88,7 +88,7 @@ function generateSummarySection(testDocs: ConsumerDataRightTestCaseJSONSchema): 
 function generateSuitesSection(testDocs: ConsumerDataRightTestCaseJSONSchema): string {
   let result = '';
 
-  result += startSection('suites');
+  result += startSection();
 
   result += header1('Test Suites', 'suites');
 
@@ -102,7 +102,7 @@ function generateSuitesSection(testDocs: ConsumerDataRightTestCaseJSONSchema): s
 
       nonEmptySuiteFound = true;
 
-      result += startSection('suite');
+      result += startSection();
 
       result += header2(suiteId + ': ' + suite.title, createSlug('suite', suiteId));
       result += text(processNewlines(suite.description));
@@ -149,7 +149,7 @@ function generateSuitesSection(testDocs: ConsumerDataRightTestCaseJSONSchema): s
 function generateScenariosSection(testDocs: ConsumerDataRightTestCaseJSONSchema): string {
   let result = '';
 
-  result += startSection('scenarios');
+  result += startSection();
 
   result += header1('Test Scenarios', 'scenarios');
 
@@ -163,7 +163,7 @@ function generateScenariosSection(testDocs: ConsumerDataRightTestCaseJSONSchema)
 
       nonEmptyScenarioFound = true;
 
-      result += startSection('scenario');
+      result += startSection();
 
       result += header2(scenarioId + ': ' + scenario.title, createSlug('scenario', scenarioId));
       result += text(processNewlines(scenario.description));
@@ -224,7 +224,7 @@ function generateScenariosSection(testDocs: ConsumerDataRightTestCaseJSONSchema)
 function generateTestCasesSection(testDocs: ConsumerDataRightTestCaseJSONSchema): string {
   let result = '';
 
-  result += startSection('testcases');
+  result += startSection();
 
   result += header1('Test Cases', 'testcases');
 
@@ -238,7 +238,7 @@ function generateTestCasesSection(testDocs: ConsumerDataRightTestCaseJSONSchema)
 
       nonEmptyTestCaseFound = true;
 
-      result += startSection('testcase');
+      result += startSection();
 
       result += header2(testCaseId + ': ' + testCase.title, createSlug('testcase', testCaseId));
       result += text(testCase.negative ? 'Negative test case' : 'Positive test case');
@@ -326,7 +326,7 @@ function generateTestCasesSection(testDocs: ConsumerDataRightTestCaseJSONSchema)
 function generateAssertionsSection(testDocs: ConsumerDataRightTestCaseJSONSchema): string {
   let result = '';
 
-  result += startSection('assertions');
+  result += startSection();
 
   result += header1('Assertions', 'assertions');
   if (testDocs.assertions && Object.keys(testDocs.assertions).length > 0) {
@@ -335,7 +335,7 @@ function generateAssertionsSection(testDocs: ConsumerDataRightTestCaseJSONSchema
     for (const assertionId of Object.keys(testDocs.assertions)) {
       const assertion = testDocs.assertions[assertionId];
 
-      result += startSection('assertion');
+      result += startSection();
 
       result += header2(assertionId + ': ' + assertion.title, createSlug('assertion', assertionId));
       result += text(processNewlines(assertion.description));
@@ -510,7 +510,7 @@ function endDoc(): string {
   return ``;
 }
 
-function startSection(id: string): string {
+function startSection(): string {
   return ``;
 }
 
@@ -647,8 +647,3 @@ function processNewlinesOnly(text: string | undefined): string {
   }
   return result;
 }
-
-
-
-// This is the minified version of default.css
-const defaultCss = 'body{background-color:#f3f7f9;color:#333;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:14px;margin:0;padding:0;padding-bottom:4em}div.content div:first-of-type h1:first-of-type{margin-top:0}div{margin-top:0;padding-top:0}h1{font-size:25px;padding-top:.5em;padding-bottom:.5em;padding-left:28px;padding-right:28px;margin-bottom:21px;margin-top:2em;border-top:1px solid #ccc;border-bottom:1px solid #ccc;background-color:#fdfdfd}h2{font-size:19px;margin-top:2em;margin-bottom:0;padding-left:28px;padding-right:28px;border-top:1px solid #ccc;padding-top:1.2em;padding-bottom:.6em}h3{font-size:16px;font-weight:700;margin-bottom:0;padding-left:28px;padding-right:28px;padding-top:.8em;padding-bottom:0}p{padding-left:28px;padding-right:28px}ul li{margin-left:28px;padding-right:28px}table{margin-top:10px;margin-bottom:10px;margin-left:28px;font-size:14px;border-collapse:collapse}th{padding-left:1em;padding-right:1em;padding-top:.3em;padding-bottom:.3em;text-align:left;vertical-align:bottom}table tr:last-child{border-bottom:1px solid #ccc}td{padding-left:1em;padding-right:1em;padding-top:.6em;padding-bottom:.6em;border:0;margin:0;border-top:1px solid #eee;vertical-align:top}tbody tr:nth-child(even){background-color:#fbfcfd}tbody tr:nth-child(odd){background-color:#fff}div.content{margin-left:230px;position:relative;z-index:10;min-height:100%;padding-bottom:1px}div.toc{overflow-y:auto;overflow-x:hidden;position:fixed;z-index:30;top:0;left:0;bottom:0;width:230px;background-color:#000;font-size:13px;font-weight:700;padding-top:10px}div.toc div{padding-top:5px;padding-bottom:5px}div.toc div a{color:#2fb787;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}div.toc1 a{font-size:13px;font-weight:700;width:210px}div.toc1{padding-left:10px}div.toc2 a{font-size:10px;font-weight:700;width:200px}div.toc2{padding-left:20px}div.toc3 a{font-size:9px;font-weight:400;width:190px}div.toc3{padding-left:30px}';

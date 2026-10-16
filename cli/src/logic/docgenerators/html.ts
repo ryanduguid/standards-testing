@@ -340,10 +340,6 @@ function generateAssertionsSection(testDocs: ConsumerDataRightTestCaseJSONSchema
     // Document each individual assertion
     for (const assertionId of Object.keys(testDocs.assertions)) {
       const assertion = testDocs.assertions[assertionId];
-      if (assertionId == 'A.CCH.001')
-      {
-        let y = 8;
-      }
       result += startSection('assertion');
 
       result += header2(assertionId + ': ' + processSpecialCharacters(assertion.title), createSlug('assertion', assertionId));
@@ -573,16 +569,6 @@ function header3(text: string | undefined, anchor?: string): string {
 function text(text: string | undefined): string {
   let result = '';
   if (text) result += `<p class="p">${text}</p>\n`;
-  return result;
-}
-
-function styledText(text: string | undefined, style: string | undefined): string {
-  let result = '';
-  if (style != null) {
-    if (text) result += `<p class="${style}">${text}</p>\n`;
-  } else {
-    if (text) result += `<p class="p">${text}</p>\n`;
-  }
   return result;
 }
 
