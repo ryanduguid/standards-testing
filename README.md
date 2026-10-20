@@ -2,7 +2,7 @@
 
 **Fork status**
 
-[![Fork code quality](https://app.codacy.com/project/badge/Grade/f55c06e2f80d4872b0147005e4ad6d7a?branch=main)](https://app.codacy.com/gh/ryanduguid/standards-testing/dashboard)
+[![Fork code quality](https://img.shields.io/codacy/grade/f55c06e2f80d4872b0147005e4ad6d7a/main?style=flat&labelColor=000000)](https://app.codacy.com/gh/ryanduguid/standards-testing/dashboard)
 
 ## Overview
 
